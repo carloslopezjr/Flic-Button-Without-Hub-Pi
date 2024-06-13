@@ -17,7 +17,7 @@ def execute_bluetoothctl():
                 if "Connected: yes" in output:
                     print("-----------------------------\n\n\n")
 
-                    print("Button was pressed!")
+                    print("Button was pressed!") # add process here you'd want to start with the press
                     
                     print("-----------------------------")
 
