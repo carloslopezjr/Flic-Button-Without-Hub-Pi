@@ -1,14 +1,14 @@
 import subprocess
 import time
 
-python_file = ['python3', '/home/acm/Door.Ai/Face-Recognition-with-OpenCV/Recognize.py']
 def execute_bluetoothctl():
     try:
         while True:
             # Start bluetoothctl command with sudo
             bluetoothctl_process = subprocess.Popen(['sudo', 'bluetoothctl'], shell=False, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
             # Send the command to connect to the Bluetooth device
-            bluetoothctl_process.stdin.write("connect 80:E4:DA:7C:B3:E4\n")
+            bluetoothctl_process.stdin.write("connect 80:E4:DA:7C:B3:E4\n") # replace with your own mac address
             bluetoothctl_process.stdin.flush()
             # Read the output until the desired string is found
             while True:
@@ -17,9 +17,8 @@ def execute_bluetoothctl():
                 if "Connected: yes" in output:
                     print("-----------------------------\n\n\n")
 
-                    print("Running Webcam Code")
-                    subprocess.run(python_file)
-
+                    print("Button was pressed!")
+                    
                     print("-----------------------------")
 
                     
